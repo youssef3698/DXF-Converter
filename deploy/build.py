@@ -11,7 +11,7 @@ PyInstaller.__main__.run(
         "--onefile",
         "--noconsole",
         # "--add-data=LICENSE.txt;.",  # If you have a license file
-        "--icon=app.ico",  # If you have an icon
+        "--icon=deploy/app.ico",  # If you have an icon
         "--clean",
         "--windowed",
     ]
