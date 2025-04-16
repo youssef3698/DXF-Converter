@@ -4,6 +4,7 @@ import pandas as pd
 
 # Standard Library Imports
 import configparser
+from typing import List
 
 class ConverterOperations:
     def __init__(self, file_path, save_file_path, convert_option) -> None:
