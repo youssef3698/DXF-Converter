@@ -172,3 +172,14 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# DXF Lock files
+*.dwl
+*.dwl2
+
+# Test inputs
+*.dxf
+!*_cleaned.dxf
+
+# Test results
+*.csv
