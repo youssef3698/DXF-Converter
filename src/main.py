@@ -18,6 +18,11 @@ class Converter:
         self.config = configparser.ConfigParser()
         self.config.read(self.config_path)
 
+        # Debugging
+        print(f"Config variables: {self.config}")
+        print(f"Ouput variables: {self.config["OUTPUT"]}")
+        print(f"default_extension: {self.config["OUTPUT"]["default_extension"]}")
+
         # Load configuration
         self.default_extension = self.config["OUTPUT"]["default_extension"]
 
