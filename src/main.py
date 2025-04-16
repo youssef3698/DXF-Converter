@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
 import configparser
+from pathlib import Path
 
 # Local Application Imports
 from src.business_logic import ConverterOperations
@@ -13,8 +14,9 @@ class Converter:
         self.root.title("DXF Converter")
 
         # Initialize configuration
+        self.config_path = Path(__file__).parents[1] / "config.ini"
         self.config = configparser.ConfigParser()
-        self.config.read("../config.ini")
+        self.config.read(self.config_path)
 
         # Load configuration
         self.default_extension = self.config["OUTPUT"]["default_extension"]

@@ -5,6 +5,7 @@ import pandas as pd
 # Standard Library Imports
 import configparser
 from typing import List
+from pathlib import Path
 
 class ConverterOperations:
     def __init__(self, file_path, save_file_path, convert_option) -> None:
@@ -13,8 +14,9 @@ class ConverterOperations:
         self.convert_option = convert_option
         
         # Initialize configuration
+        self.config_path = Path(__file__).parents[1] / "config.ini"
         self.config = configparser.ConfigParser()
-        self.config.read("../config.ini")
+        self.config.read(self.config_path)
 
         # Load the configuration
         self.point_id_layer = self.config["LAYERS"]["point_id"]
