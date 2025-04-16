@@ -6,7 +6,7 @@ import configparser
 from pathlib import Path
 
 # Local Application Imports
-from src.business_logic import ConverterOperations
+from business_logic import ConverterOperations
 
 class Converter:
     def __init__(self):
@@ -121,7 +121,11 @@ class Converter:
             return
 
         try:
-            operations = ConverterOpertions(self.file_path.get(), self.save_path.get(), self.convert_option.get())
+            operations = ConverterOperations(
+                self.file_path.get(),
+                self.save_path.get(),
+                self.convert_option.get()
+            )
 
             skipped_entities = operations.convert_file()
             messagebox.askokcancel(
