@@ -5,9 +5,11 @@ from tkinter import messagebox
 import configparser
 import time
 from pathlib import Path
+import sys
 
 # Local Application Imports
 from business_logic import ConverterOperations
+
 
 class Converter:
     def __init__(self):
@@ -15,10 +17,15 @@ class Converter:
         self.root.title("DXF Converter")
 
         # Initialize configuration
-        self.config_path = Path(__file__).parents[1] / "config.ini"
+        if getattr(sys, "frozen", False):
+            # Running as bundled exe
+            self.config_path = Path(sys.executable).parent / "config.ini"
+        else:
+            # Running as script
+            self.config_path = Path(__file__).parents[1] / "config.ini"
         self.config = configparser.ConfigParser()
-        self.config.read(self.config_path)
-
+        self.config.read(self.config_path, encoding="utf-8")
+        
         # Debugging
         print(f"Config variables: {self.config}")
         print(f"Ouput variables: {self.config["OUTPUT"]}")

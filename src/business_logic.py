@@ -6,6 +6,8 @@ import pandas as pd
 import configparser
 from typing import List
 from pathlib import Path
+import sys
+
 
 class ConverterOperations:
     def __init__(self, file_path, save_file_path, convert_option) -> None:
@@ -15,7 +17,12 @@ class ConverterOperations:
         self.skipped_entities = []
         
         # Initialize configuration
-        self.config_path = Path(__file__).parents[1] / "config.ini"
+        if getattr(sys, "frozen", False):
+            # Running as bundled exe
+            self.config_path = Path(sys.executable).parent / "config.ini"
+        else:
+            # Running as script
+            self.config_path = Path(__file__).parents[1] / "config.ini"
         self.config = configparser.ConfigParser()
         self.config.read(self.config_path, encoding="utf-8")
 
