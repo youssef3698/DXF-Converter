@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
 import configparser
+import time
 from pathlib import Path
 
 # Local Application Imports
@@ -175,5 +176,8 @@ class Converter:
 
 
 if __name__ == "__main__":
+    start_time = time.time()
     converter = Converter()
     converter.root.mainloop()
+    end_time = time.time()
+    print(f"Execution time: {end_time - start_time:.2f} seconds")
