@@ -179,6 +179,7 @@ cython_debug/
 
 # Test inputs
 *.dxf
+*.bak
 !*_cleaned.dxf
 
 # Test results
