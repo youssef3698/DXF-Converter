@@ -86,8 +86,15 @@ class Converter:
                 # Get the directory and filename from the input path
                 input_path = self.file_path.get()
                 ext = ".txt" if self.convert_option.get() == "txt" else ".csv"
-                # Replace the extension while keeping the same path and filename
-                self.save_path.set(input_path.rsplit(".", 1)[0] + ext)
+                # Set new file name:
+                filename = Path(input_path).stem + ext
+                # Set output directory (relative to input file):
+                output_dir = Path(input_path).parents[1] / "output"
+                # Create the output directory if it doesn't exist
+                output_dir.mkdir(exist_ok=True)
+                # Set the save path to the new file name in the output directory
+                self.save_path.set(str(output_dir / filename))
+
 
         # Track changes to file_path and convert_option
         self.file_path.trace_add("write", update_save_path)
