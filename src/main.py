@@ -128,9 +128,10 @@ class Converter:
             )
 
             skipped_entities = operations.convert_file()
-            messagebox.askokcancel(
-                "Skipped Entities", f"Skipped entities: {skipped_entities}"
-            )
+            if skipped_entities != []:
+                messagebox.askokcancel(
+                    "Skipped Entities", f"Skipped entities: {skipped_entities}"
+                )
             messagebox.showinfo(
                 "Success",
                 "File converted successfully!\nApplication will close in 2 seconds.",
