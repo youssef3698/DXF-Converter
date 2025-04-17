@@ -1,8 +1,19 @@
 import PyInstaller.__main__
+from pathlib import Path
 import os
 
-# Get the current directory
-current_dir = os.path.dirname(os.path.abspath(__file__))
+# Get config file path
+config_path = Path(__file__).parent / "config.ini"
+if not config_path.exists():
+    raise FileNotFoundError(f"Config file not found at {config_path}")
+
+# Get license file path
+license_path = Path(__file__).parents[1] / "LICENSE.md"
+if not license_path.exists():
+    raise FileNotFoundError(f"License file not found at {license_path}")
+
+# Get system pathsep
+sep = os.pathsep
 
 PyInstaller.__main__.run(
     [
@@ -10,8 +21,9 @@ PyInstaller.__main__.run(
         "--name=DXF_Converter",
         "--onefile",
         "--noconsole",
-        # "--add-data=LICENSE.txt;.",  # If you have a license file
-        "--icon=deploy/app.ico",  # If you have an icon
+        f"--add-data={config_path}{sep}.",
+        f"--add-data={license_path}{sep}.",
+        "--icon=deploy/app.ico",
         "--clean",
         "--windowed",
     ]
