@@ -2,16 +2,21 @@
 
 _A Python tool that converts DXF files to structured data (CSV/TXT) with configurable layer mapping._
 
-## Table of Contents
-- [DXF Converter 🏗️➡️📊](#dxf-converter-️️)
-  - [Table of Contents](#table-of-contents)
-  - [Features](#features)
-  - [‼️ The Problem](#️-the-problem)
-  - [🛠️ How This Script Solves It](#️-how-this-script-solves-it)
-  - [Quick Start Guide](#quick-start-guide)
-  - [Future Ideas *(Optional Enhancements)*](#future-ideas-optional-enhancements)
-  - [Contributions](#contributions)
-  - [License](#license)
+---
+<details>
+<summary><strong>Table of Contents</strong></summary>
+  
+- [Features](#features)
+- [‼️ The Problem](#️-the-problem)
+- [🛠️ How This Script Solves It](#️-how-this-script-solves-it)
+- [Quick Start Guide](#quick-start-guide)
+- [Future Ideas *(Optional Enhancements)*](#future-ideas-optional-enhancements)
+- [Contributions](#contributions)
+- [License](#license)
+
+</details>
+
+---
 
 ## Features
 - ✨ Extract point data from DXF files with custom layer mapping
